@@ -3,6 +3,8 @@ import headerImg from "./assets/headerImg.png";
 import arr from "./itemArray.js";
 import "./App.css";
 
+let idArr = [];
+
 function App() {
   const [itemArr, setItemArr] = useState([...arr]);
 
@@ -14,8 +16,16 @@ function App() {
     return array;
   };
 
-  const onChange = () => {
-    setItemArr((prev) => [...prev], [...shuffleArr(itemArr)]);
+  const handleClick = (id) => {
+    if (idArr.includes(id)) {
+      alert("Too Bad");
+      idArr = [];
+      setItemArr((prev) => [...prev], [...shuffleArr(itemArr)]);
+    } else {
+      idArr.push(id);
+      setItemArr((prev) => [...prev], [...shuffleArr(itemArr)]);
+      console.log(idArr);
+    }
   };
 
   return (
@@ -38,7 +48,7 @@ function App() {
                 <div
                   key={item.id}
                   className="grid-item"
-                  onClick={() => onChange()}
+                  onClick={() => handleClick(item.id)}
                 >
                   <div className="image-container">
                     <img src={item.imgName} />
