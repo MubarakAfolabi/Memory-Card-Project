@@ -18,8 +18,14 @@ function App() {
     <div className="body-container">
       <div className="dark-container">
         <header>
-          <img src={headerImg} />
-          <span className="header-title">JOJO Memory Card</span>
+          <div className="logo-container">
+            <img src={headerImg} />
+            <span className="header-title">JOJO Memory Card</span>
+          </div>
+          <div className="score-container">
+            <p>Score : 0</p>
+            <p>Best Score : 0</p>
+          </div>
         </header>
         <main>
           <div className="grid-container">
