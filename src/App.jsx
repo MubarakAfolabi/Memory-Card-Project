@@ -13,6 +13,8 @@ function App() {
   const [bestScore, setBestScore] = useState(0);
   const [isVisible, setVisible] = useState(false);
 
+  const dioAudio = new Audio("./audios/dio-wryyy.mp3");
+
   const shuffleArr = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -24,11 +26,11 @@ function App() {
   const handleClick = (id) => {
     if (idArr.includes(id)) {
       setVisible(true);
+      dioAudio.play();
     } else {
       idArr.push(id);
       setScore((score) => score + 1);
       setItemArr((prev) => [...prev], [...shuffleArr(itemArr)]);
-      console.log(idArr);
     }
   };
 
@@ -42,6 +44,8 @@ function App() {
 
   useEffect(() => {
     if (score === 12) {
+      const josephSound = new Audio("./audios/joseph-nice.mp3");
+      josephSound.play();
       setVisible(true);
     }
   }, [score]);
