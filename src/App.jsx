@@ -6,6 +6,18 @@ import "./App.css";
 function App() {
   const [itemArr, setItemArr] = useState([...arr]);
 
+  const shuffleArr = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+
+  const onChange = () => {
+    setItemArr((prev) => [...prev], [...shuffleArr(itemArr)]);
+  };
+
   return (
     <div className="body-container">
       <div className="dark-container">
@@ -23,7 +35,11 @@ function App() {
           <div className="grid-container">
             {itemArr.map((item) => {
               return (
-                <div key={item.id} className="grid-item">
+                <div
+                  key={item.id}
+                  className="grid-item"
+                  onClick={() => onChange()}
+                >
                   <div className="image-container">
                     <img src={item.imgName} />
                   </div>
