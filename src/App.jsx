@@ -7,6 +7,8 @@ let idArr = [];
 
 function App() {
   const [itemArr, setItemArr] = useState([...arr]);
+  const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
 
   const shuffleArr = (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -18,11 +20,14 @@ function App() {
 
   const handleClick = (id) => {
     if (idArr.includes(id)) {
-      alert("Too Bad");
+      alert("Whoops, Try Again");
+      bestScore <= score ? setBestScore(score) : bestScore;
       idArr = [];
+      setScore(0);
       setItemArr((prev) => [...prev], [...shuffleArr(itemArr)]);
     } else {
       idArr.push(id);
+      setScore(score + 1);
       setItemArr((prev) => [...prev], [...shuffleArr(itemArr)]);
       console.log(idArr);
     }
@@ -37,8 +42,8 @@ function App() {
             <span className="header-title">JOJO Memory Card</span>
           </div>
           <div className="score-container">
-            <p>Score : 0</p>
-            <p>Best Score : 0</p>
+            <p>Score : {score}</p>
+            <p>Best Score : {bestScore}</p>
           </div>
         </header>
         <main>
