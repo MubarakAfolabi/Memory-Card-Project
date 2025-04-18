@@ -90,7 +90,7 @@ function App() {
         >
           <div className="gif-container">
             <img src={score === 12 ? josephGif : dioGif} />
-            <span>{score === 12 ? "Niceee" : "Whoops"}</span>
+            <span>{score === 12 ? "Niceee" : "Wryyyy"}</span>
             <p>
               {score === 12
                 ? "You picked all without breaking a sweat"
