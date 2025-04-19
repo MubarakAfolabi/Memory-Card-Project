@@ -94,7 +94,7 @@ function App() {
             <p>
               {score === 12
                 ? "You picked all without breaking a sweat"
-                : "You already picked this card"}
+                : "You've already picked this card"}
             </p>
             <button onClick={() => handlePopUpClick()}>
               {score === 12 ? "Play Again" : "Try Again"}
